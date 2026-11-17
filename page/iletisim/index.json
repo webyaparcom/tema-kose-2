@@ -1,0 +1,46 @@
+{
+  "name": {
+    "tr": "Yazışma",
+    "en": "Write",
+    "ar": "المراسلة"
+  },
+  "status": "play",
+  "category": "",
+  "id": "iletisim",
+  "url": "",
+  "path": "iletisim",
+  "index": 2,
+  "icon": "edit",
+  "desing": {
+    "header": [],
+    "body": [
+      "vsqyhx"
+    ],
+    "footer": []
+  },
+  "pathnext": "",
+  "description": {
+    "tr": "Yazara not ve söyleşi daveti (demo).",
+    "en": "A note to the writer and talk invitations (demo).",
+    "ar": "ملاحظة للكاتب ودعوات الحوار (تجريبي)."
+  },
+  "spot": {
+    "tr": "",
+    "en": "",
+    "ar": ""
+  },
+  "desc": {},
+  "title": {
+    "tr": "Yazışma",
+    "en": "Write",
+    "ar": "المراسلة"
+  },
+  "keyword": {
+    "tr": "iletişim, not",
+    "en": "contact, note",
+    "ar": "اتصال، ملاحظة"
+  },
+  "text": {},
+  "update": "2026-11-16T22:49:41.769Z",
+  "date": "2026-10-30"
+}

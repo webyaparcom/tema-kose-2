@@ -1,0 +1,85 @@
+{
+  "data": [
+    {
+      "name": {
+        "tr": "Yazar",
+        "en": "Writer",
+        "ar": "الكاتب"
+      },
+      "status": "play",
+      "id": "hakkimizda",
+      "path": "hakkimizda",
+      "category": "",
+      "url": "",
+      "index": 0,
+      "icon": "person",
+      "desing": {
+        "header": [],
+        "body": [
+          "d3hht9",
+          "iuy0gv"
+        ],
+        "footer": []
+      },
+      "pathnext": "",
+      "description": {
+        "tr": "Köşe, kitaplar ve söyleşiler (kurgusal).",
+        "en": "Column, books and talks (fictional).",
+        "ar": "العمود والكتب والحوارات (افتراضي)."
+      }
+    },
+    {
+      "id": "72dm8qtwl8",
+      "name": {
+        "tr": "Arşiv",
+        "en": "Archive",
+        "ar": "الأرشيف"
+      },
+      "description": {
+        "tr": "Ay ay köşe yazıları arşivi (kurgusal).",
+        "en": "Month-by-month column archive (fictional).",
+        "ar": "أرشيف المقالات شهرًا بشهر (افتراضي)."
+      },
+      "path": "referanslar",
+      "icon": "inventory_2",
+      "category": "",
+      "status": "play",
+      "desing": {
+        "header": [],
+        "body": [
+          "beyv3q"
+        ],
+        "footer": []
+      },
+      "index": 1
+    },
+    {
+      "name": {
+        "tr": "Yazışma",
+        "en": "Write",
+        "ar": "المراسلة"
+      },
+      "status": "play",
+      "id": "iletisim",
+      "path": "iletisim",
+      "category": "",
+      "url": "",
+      "index": 2,
+      "icon": "edit",
+      "desing": {
+        "header": [],
+        "body": [
+          "vsqyhx"
+        ],
+        "footer": []
+      },
+      "pathnext": "",
+      "description": {
+        "tr": "Yazara not ve söyleşi daveti (demo).",
+        "en": "A note to the writer and talk invitations (demo).",
+        "ar": "ملاحظة للكاتب ودعوات الحوار (تجريبي)."
+      }
+    }
+  ],
+  "desc": []
+}
