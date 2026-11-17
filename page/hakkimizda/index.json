@@ -1,0 +1,47 @@
+{
+  "name": {
+    "tr": "Yazar",
+    "en": "Writer",
+    "ar": "الكاتب"
+  },
+  "status": "play",
+  "category": "",
+  "id": "hakkimizda",
+  "url": "",
+  "path": "hakkimizda",
+  "index": 0,
+  "icon": "person",
+  "desing": {
+    "header": [],
+    "body": [
+      "d3hht9",
+      "iuy0gv"
+    ],
+    "footer": []
+  },
+  "pathnext": "",
+  "description": {
+    "tr": "Köşe, kitaplar ve söyleşiler (kurgusal).",
+    "en": "Column, books and talks (fictional).",
+    "ar": "العمود والكتب والحوارات (افتراضي)."
+  },
+  "spot": {
+    "tr": "",
+    "en": "",
+    "ar": ""
+  },
+  "desc": {},
+  "title": {
+    "tr": "Yazar",
+    "en": "Writer",
+    "ar": "الكاتب"
+  },
+  "keyword": {
+    "tr": "yazar, kitap",
+    "en": "writer, books",
+    "ar": "كاتب، كتب"
+  },
+  "text": {},
+  "update": "2026-11-16T22:49:41.746Z",
+  "date": "2026-10-30"
+}

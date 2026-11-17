@@ -1,0 +1,125 @@
+<section class="modulex-acilis-kartvizit{{fbsinif}}" {{fbetiket}}>
+  <div class="modulex-acilis-kartvizit-ic">
+    {{fbbas}}
+    {{fbgovde}}
+  </div>
+</section>
+
+<style>
+  /* acilis-kartvizit — acilis-kart-yigini kartları üst üste dizer, ekip-kartvizit ekip bölümüdür, iletisim-kartvizit-cevir iletişim bölümüdür; bu modül tek kişilik açılışı 85×55 oranlı çift yüzlü kartvizite çevirir — portre ön yüz, iletişim arka yüz, düğmeyle 3B çevirme ve görünmeyen yüz inert. */
+  .modulex-acilis-kartvizit { box-sizing: border-box; width: 100%; padding: --bosluk-- 20px; background: --bg--; color: --text--; font-size: 1rem; line-height: 1.6; font-family: var(--mx-font-sans, inherit); overflow-wrap: break-word; }
+  .modulex-acilis-kartvizit *, .modulex-acilis-kartvizit *::before, .modulex-acilis-kartvizit *::after { box-sizing: border-box; }
+  /* ham/css.css «* { font-size: 14px }» kalıtımı keser — modül içinde boyut üstten gelsin (ikon yazı tipi hariç) */
+  .modulex-acilis-kartvizit :where(*:not(.material-symbols-outlined)) { font-size: inherit; }
+  /* aynı «*» kuralı font-weight 400 · line-height 1.2 · font-family de basar — modül içinde kalıtım */
+  .modulex-acilis-kartvizit :where(*:not(.material-symbols-outlined)) { font-weight: inherit; line-height: inherit; font-family: inherit; }
+  .modulex-acilis-kartvizit :where(h2, h3, h4, p, ul, ol, li, figure, blockquote, dl, dd) { margin: 0; }
+  .modulex-acilis-kartvizit :where(ul, ol) { padding: 0; list-style: none; }
+  .modulex-acilis-kartvizit img { display: block; max-width: 100%; }
+  /* <img width height> öznitelik yüksekliği CSS aspect-ratio'yu ezer — sıfır özgüllükle auto (modül sınıfının height'ı yine kazanır) */
+  :where(.modulex-acilis-kartvizit) img { height: auto; }
+  .modulex-acilis-kartvizit [hidden] { display: none !important; }
+  .modulex-acilis-kartvizit :where(a, button, summary, [data-cevir]) { cursor: pointer; }
+  .modulex-acilis-kartvizit :where(a, button, summary, [tabindex]):focus-visible { outline: 3px solid --accent--; outline-offset: 3px; }
+  .modulex-acilis-kartvizit-ic { max-width: --max--; margin-inline: auto; }
+  .modulex-acilis-kartvizit-bas { display: grid; gap: 12px; margin-block-end: clamp(32px, 4vw, 52px); }
+  .modulex-acilis-kartvizit--bassiz .modulex-acilis-kartvizit-bas { display: none; }
+  .modulex-acilis-kartvizit-ust { color: --accentInk--; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+  .modulex-acilis-kartvizit-baslik { font-family: var(--mx-font-heading, inherit); font-size: clamp(1.8rem, 3.4vw, 2.8rem); font-weight: 750; letter-spacing: -0.025em; line-height: 1.1; }
+  .modulex-acilis-kartvizit-metin { color: --muted--; font-size: 1.05rem; line-height: 1.7; }
+  .modulex-acilis-kartvizit-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-block-start: 8px; }
+  .modulex-acilis-kartvizit-dugme { display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 12px 22px; border: 2px solid --accent--; border-radius: 999px; background: --accent--; color: --accentText--; font-weight: 700; text-decoration: none; transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease; }
+  .modulex-acilis-kartvizit-dugme:hover { transform: translateY(-2px); }
+  .modulex-acilis-kartvizit-dugme--ikincil { background: transparent; color: --text--; border-color: --cizgi--; }
+  .modulex-acilis-kartvizit-dugme--ikincil:hover { border-color: --accent--; }
+  .modulex-acilis-kartvizit-dugme .material-symbols-outlined { font-size: 20px; }
+
+  .modulex-acilis-kartvizit-duzen { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(28px, 5vw, 72px); align-items: center; }
+  .modulex-acilis-kartvizit-duzen--tek { grid-template-columns: minmax(0, 1fr); max-width: 820px; }
+  .modulex-acilis-kartvizit-yazi { display: grid; gap: 20px; justify-items: start; min-width: 0; }
+  .modulex-acilis-kartvizit-masa { display: grid; justify-items: center; gap: 18px; min-width: 0; padding-block: clamp(12px, 3vw, 40px); perspective: 1600px; }
+  .modulex-acilis-kartvizit-vkart { position: relative; display: grid; gap: 16px; inline-size: min(100%, 520px); }
+  .modulex-acilis-kartvizit-yuz { position: relative; display: grid; min-width: 0; aspect-ratio: 85 / 55; overflow: hidden; padding: clamp(18px, 3vw, 30px); border-radius: 14px; background-color: --bg--; box-shadow: 0 1px 0 --cizgi--, 0 34px 60px -34px color-mix(in srgb, --text-- 70%, transparent); }
+  .modulex-acilis-kartvizit-yuz--on { grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: clamp(14px, 3vw, 26px); }
+  .modulex-acilis-kartvizit-yuz--arka { align-content: center; background-color: --text--; color: --bg--; }
+  .modulex-acilis-kartvizit-portre { inline-size: clamp(84px, 13vw, 128px); aspect-ratio: 1; object-fit: cover; border-radius: 50%; box-shadow: 0 0 0 4px --bg--, 0 0 0 6px --accent--; }
+  .modulex-acilis-kartvizit-kimlik { position: relative; z-index: 1; display: grid; gap: 4px; min-width: 0; }
+  .modulex-acilis-kartvizit-kimlik .modulex-acilis-kartvizit-rikon { justify-self: start; color: --accentInk--; font-size: 24px; }
+  .modulex-acilis-kartvizit-kimlik .modulex-acilis-kartvizit-rdeger { font-family: var(--mx-font-heading, inherit); font-size: clamp(1.3rem, 2.4vw, 1.9rem); font-weight: 800; line-height: 1.1; }
+  .modulex-acilis-kartvizit-kimlik .modulex-acilis-kartvizit-rmetin { color: --muted--; font-size: 0.9rem; letter-spacing: 0.04em; }
+  .modulex-acilis-kartvizit-desen { position: absolute; inset-block-end: 0; inset-inline: 0; block-size: 14px; background: repeating-linear-gradient(-45deg, --accent-- 0 6px, transparent 6px 12px); }
+  .modulex-acilis-kartvizit-iletisim { display: grid; gap: 12px; }
+  .modulex-acilis-kartvizit-ihat { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 12px; padding-block-end: 10px; border-block-end: 1px solid color-mix(in srgb, --bg-- 18%, transparent); }
+  .modulex-acilis-kartvizit-ihat:last-child { padding-block-end: 0; border-block-end: 0; }
+  .modulex-acilis-kartvizit-iikon { color: color-mix(in srgb, --accent-- 45%, --bg--); font-size: 20px; }
+  .modulex-acilis-kartvizit-imetin { font-size: 0.95rem; }
+  .modulex-acilis-kartvizit-ideger { font-weight: 800; font-variant-numeric: tabular-nums; }
+  .modulex-acilis-kartvizit--vjs .modulex-acilis-kartvizit-vkart { gap: 0; transform: rotate(-3deg); transform-style: preserve-3d; transition: transform 0.9s cubic-bezier(0.3, 0.7, 0.2, 1); }
+  .modulex-acilis-kartvizit--vjs .modulex-acilis-kartvizit-vkart::before { content: ""; position: absolute; inset: 0; border-radius: 14px; background-color: color-mix(in srgb, --accent-- 20%, --bg--); transform: rotate(7deg) translateZ(-2px); }
+  .modulex-acilis-kartvizit--vjs .modulex-acilis-kartvizit-yuz { grid-area: 1 / 1; backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+  .modulex-acilis-kartvizit--vjs .modulex-acilis-kartvizit-yuz--arka { transform: rotateY(180deg); }
+  .modulex-acilis-kartvizit--vjs .modulex-acilis-kartvizit-vkart--arka { transform: rotate(-3deg) rotateY(180deg); }
+  .modulex-acilis-kartvizit--vjs .modulex-acilis-kartvizit-masa:hover .modulex-acilis-kartvizit-vkart:not(.modulex-acilis-kartvizit-vkart--arka) { transform: rotate(0deg) translateY(-6px); }
+  .modulex-acilis-kartvizit-cevir { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 8px 18px; border: 1.5px solid --text--; border-radius: 999px; background-color: transparent; color: --text--; font: inherit; font-weight: 700; transition: background-color 0.25s ease, color 0.25s ease; }
+  .modulex-acilis-kartvizit-cevir:hover, .modulex-acilis-kartvizit-cevir[aria-pressed="true"] { background-color: --text--; color: --bg--; }
+  @media (max-width: 1024px) {
+    .modulex-acilis-kartvizit-duzen { grid-template-columns: minmax(0, 1fr); }
+  }
+  @media (max-width: 768px) {
+    .modulex-acilis-kartvizit-masa { overflow-x: clip; padding-inline: 10px; }
+    .modulex-acilis-kartvizit--vjs .modulex-acilis-kartvizit-vkart { transform: rotate(-1.5deg); }
+    .modulex-acilis-kartvizit--vjs .modulex-acilis-kartvizit-vkart::before { transform: rotate(3deg) translateZ(-2px); }
+    .modulex-acilis-kartvizit--vjs .modulex-acilis-kartvizit-vkart--arka { transform: rotate(-1.5deg) rotateY(180deg); }
+    .modulex-acilis-kartvizit-yuz { aspect-ratio: auto; min-block-size: 200px; }
+    .modulex-acilis-kartvizit-ihat { grid-template-columns: auto minmax(0, 1fr); }
+    .modulex-acilis-kartvizit-ideger { grid-column: 2; }
+  }
+  .modulex-acilis-kartvizit-h1 { font-family: var(--mx-font-heading, inherit); font-size: clamp(2.3rem, 5.2vw, 4.2rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; text-wrap: balance; }
+  .modulex-acilis-kartvizit-metin { color: --muted--; font-size: clamp(1.02rem, 1.3vw, 1.18rem); line-height: 1.7; max-width: 62ch; }
+  .modulex-acilis-kartvizit-ogeler { display: flex; flex-wrap: wrap; gap: 14px 30px; }
+  .modulex-acilis-kartvizit-oge { display: flex; align-items: center; gap: 10px; }
+  .modulex-acilis-kartvizit-oikon { color: --accentInk--; font-size: 22px; }
+  .modulex-acilis-kartvizit-odeger { font-size: 1.45rem; font-weight: 800; line-height: 1; font-variant-numeric: tabular-nums; }
+  .modulex-acilis-kartvizit-ometin { color: --muted--; font-size: 0.95rem; }
+  .modulex-acilis-kartvizit-obag { color: inherit; text-underline-offset: 3px; }
+  .modulex-acilis-kartvizit-gir { animation: modulex-acilis-kartvizit-gir 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+  @keyframes modulex-acilis-kartvizit-gir { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+  :is([lang="ar"], [lang="fa"], [lang="he"], [lang="ur"]) .modulex-acilis-kartvizit-h1 { letter-spacing: 0; line-height: 1.3; }
+
+  :is([lang="ar"], [lang="fa"], [lang="he"], [lang="ur"]) .modulex-acilis-kartvizit :is(.modulex-acilis-kartvizit-baslik, .modulex-acilis-kartvizit-ust, h3, h4, strong) { letter-spacing: 0; }
+  :is([lang="ar"], [lang="fa"], [lang="he"], [lang="ur"]) .modulex-acilis-kartvizit-baslik { line-height: 1.35; }
+  @media (max-width: 768px) {
+    .modulex-acilis-kartvizit { padding-inline: 16px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .modulex-acilis-kartvizit *, .modulex-acilis-kartvizit *::before, .modulex-acilis-kartvizit *::after { animation: none !important; transition: none !important; }
+  }
+</style>
+<script>
+  (() => {
+    const P = "modulex-acilis-kartvizit";
+    const az = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+    const vizitCevir = (s, P) => {
+        const k = s.querySelector("[data-vizit]");
+        const b = s.querySelector("[data-vizit-cevir]");
+        if (!k || !b) return;
+        const on = k.querySelector("[data-yuz=on]");
+        const arka = k.querySelector("[data-yuz=arka]");
+        s.classList.add(P + "--vjs");
+        b.hidden = false;
+        const yaz = (a) => {
+          k.classList.toggle(P + "-vkart--arka", a);
+          b.setAttribute("aria-pressed", String(a));
+          if (on) on.inert = a;
+          if (arka) arka.inert = !a;
+        };
+        b.addEventListener("click", () => yaz(!k.classList.contains(P + "-vkart--arka")));
+        yaz(false);
+      };
+    document.querySelectorAll("." + P).forEach((s) => {
+      if (s.dataset.fbHazir) return;
+      s.dataset.fbHazir = "1";
+      vizitCevir(s, P, az);
+    });
+  })();
+</script>

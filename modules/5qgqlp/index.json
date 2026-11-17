@@ -1,0 +1,63 @@
+{
+  "name": "Açılış Kartvizit — masada dönen kartvizit, ön yüz portre, arka yüz iletişim",
+  "description": "Bir yanda üst etiket, h1, metin ve düğmeler; diğer yanda masada hafif eğik duran kartvizit (arkasında ikinci kart gölgesi): ön yüzde yuvarlak portre, ad/unvan (rozet_deger · rozet_metin) ve çizgi deseni; «çevir» düğmesiyle kart 3B döner, arka yüzde maddeler iletişim satırları olarak (ikon · metin · değer). JS yokken iki yüz alt alta görünür. acilis-kart-yigini kartları üst üste dizer, ekip-kartvizit ekip bölümüdür, iletisim-kartvizit-cevir iletişim bölümüdür; bu modül tek kişilik açılışı 85×55 oranlı çift yüzlü kartvizite çevirir — portre ön yüz, iletişim arka yüz, düğmeyle 3B çevirme ve görünmeyen yüz inert. Başlık h1, ilk görsel eager. Metinler dil sözlüğü, renkler desing + var(--mx-site-*), mantıksal CSS → RTL. Başlık yoksa blok basılmaz.",
+  "version": "1.0.0",
+  "icon": "contact_page",
+  "category": "hero",
+  "subCategory": "business-card",
+  "tags": [
+    "hero",
+    "business-card",
+    "flip",
+    "personal",
+    "3d",
+    "rtl",
+    "fabrika"
+  ],
+  "desing": {
+    "max": "1200px",
+    "bosluk": "clamp(56px, 8vw, 104px)",
+    "yuvarlak": "18px",
+    "ust": "",
+    "baslik": "",
+    "metin": "",
+    "img": "",
+    "img2": "",
+    "video": "",
+    "poster": "",
+    "alt": "",
+    "cta_ad": "",
+    "cta_url": "",
+    "cta2_ad": "",
+    "cta2_url": "",
+    "rozet_ikon": "",
+    "rozet_deger": "",
+    "rozet_metin": "",
+    "bg": "var(--mx-site-surface, #f6f7f9)",
+    "text": "var(--mx-site-text, #111318)",
+    "muted": "color-mix(in srgb, var(--mx-site-text, #111318) 70%, var(--mx-site-surface, #f6f7f9))",
+    "kartBg": "var(--mx-site-bg, #ffffff)",
+    "cizgi": "color-mix(in srgb, var(--mx-site-text, #111318) 12%, transparent)",
+    "accent": "var(--mx-site-primary, #2563eb)",
+    "accentInk": "color-mix(in srgb, var(--mx-site-primary, #2563eb) 70%, var(--mx-site-text, #111318))",
+    "accentText": "var(--mx-site-primary-contrast, #ffffff)",
+    "vurguBg": "var(--mx-site-primary, #2563eb)",
+    "vurguText": "var(--mx-site-primary-contrast, #ffffff)",
+    "cevir_ad": "",
+    "bgcolor": "var(--mx-site-surface, #f6f7f9)",
+    "color": "var(--mx-site-text, #111318)"
+  },
+  "data": [],
+  "veri": {
+    "statik": true,
+    "dinamik": false,
+    "kaynak": "desing/data",
+    "alanlar": {
+      "ikon": "madde ikonu (Material Symbols)",
+      "deger": "sayı/değer (ör. 1.200+, dil sözlüğü olabilir)",
+      "metin": "madde metni (dil sözlüğü)",
+      "img": "madde görseli (mozaik yerleşimlerde)",
+      "url": "madde bağlantısı"
+    }
+  }
+}

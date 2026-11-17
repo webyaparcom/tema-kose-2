@@ -1,0 +1,59 @@
+{
+  "name": "Köşe Yazısı Arşiv — yapışkan yazar kartı, ay gruplu yazılar, kenarda dev gün rakamı",
+  "description": "Solda yapışkan yazar kartı (yuvarlak portre `img`, ad `imza`, unvan, giriş metni ve etiket çipleri); sağda ay-yıl başlıklarıyla gruplanmış yazılar: kenar boşluğunda dev gün rakamı + hafta günü, etiket, başlık bağlantısı, iki satıra kesilen spot ve «Devamı» ile açılım, okuma süresi çubuğu. Etiket çipleri süzer, boşalan ay grubu gizlenir. Kayıt alanları: `tarih` (YYYY-AA-GG) · `etiket` · `sure` (dk). JS yokken spotlar tam ve süzgeç gizli. tanitim-imza'nın tek mektup bloğundan ve tanitim-gazete'nin çok sütunlu metninden farkı: tarih eksenli arşiv iskeleti (ay grupları, kenarda dev gün rakamı, okuma süresi çubuğu) + yapışkan yazar kartı ve etiket süzgeci; module ailesinde tarihli yazı listesi yok. Metinler dil sözlüğü, renkler desing + var(--mx-site-*), mantıksal CSS → RTL. Başlık ve metin yoksa blok basılmaz.",
+  "version": "1.0.0",
+  "icon": "edit_note",
+  "category": "module",
+  "subCategory": "column-archive",
+  "tags": [
+    "module",
+    "blog",
+    "archive",
+    "author",
+    "filter",
+    "interactive",
+    "rtl",
+    "fabrika"
+  ],
+  "desing": {
+    "max": "1160px",
+    "bosluk": "clamp(56px, 8vw, 104px)",
+    "yuvarlak": "18px",
+    "ust": "",
+    "baslik": "",
+    "metin": "",
+    "img": "",
+    "img2": "",
+    "cta_ad": "",
+    "cta_url": "",
+    "cta2_ad": "",
+    "cta2_url": "",
+    "bg": "var(--mx-site-bg, #ffffff)",
+    "text": "var(--mx-site-text, #111318)",
+    "muted": "color-mix(in srgb, var(--mx-site-text, #111318) 68%, var(--mx-site-bg, #ffffff))",
+    "kartBg": "var(--mx-site-surface, #f6f7f9)",
+    "cizgi": "color-mix(in srgb, var(--mx-site-text, #111318) 12%, transparent)",
+    "accent": "var(--mx-site-primary, #2563eb)",
+    "accentInk": "color-mix(in srgb, var(--mx-site-primary, #2563eb) 70%, var(--mx-site-text, #111318))",
+    "accentText": "var(--mx-site-primary-contrast, #ffffff)",
+    "vurguBg": "var(--mx-site-primary, #2563eb)",
+    "vurguText": "var(--mx-site-primary-contrast, #ffffff)",
+    "yazarAd": "",
+    "yazarUnvan": "",
+    "dkAd": "",
+    "bgcolor": "var(--mx-site-bg, #ffffff)",
+    "color": "var(--mx-site-text, #111318)"
+  },
+  "data": [],
+  "veri": {
+    "statik": true,
+    "dinamik": false,
+    "kaynak": "desing/data",
+    "alanlar": {
+      "ikon": "madde ikonu (Material Symbols)",
+      "baslik": "madde başlığı (dil sözlüğü, zorunlu)",
+      "metin": "madde metni (dil sözlüğü)",
+      "url": "madde bağlantısı"
+    }
+  }
+}

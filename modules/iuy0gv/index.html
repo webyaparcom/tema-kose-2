@@ -1,0 +1,104 @@
+<section class="modulex-cagri-imza{{fbsinif}}" {{fbetiket}}>
+  <div class="modulex-cagri-imza-ic">
+    {{fbbas}}
+    {{fbgovde}}
+  </div>
+</section>
+
+<style>
+  /* cagri-imza — cagri-dev-yazi tipografiyi dev puntoyla, cagri-alinti söz olarak kullanır; bu modülde kişinin adı imza gibi çizilir (SVG stroke-dashoffset animasyonu) ve iletişim kartvizit nesnesinde toplanır — ailede kişisel kart/imza iskeleti yok. */
+  .modulex-cagri-imza { box-sizing: border-box; width: 100%; padding: --bosluk-- 20px; background: --bg--; color: --yaziRenk--; font-size: 1rem; line-height: 1.6; font-family: var(--mx-font-sans, inherit); overflow-wrap: break-word; }
+  .modulex-cagri-imza *, .modulex-cagri-imza *::before, .modulex-cagri-imza *::after { box-sizing: border-box; }
+  /* ham/css.css «* { font-size: 14px }» kalıtımı keser — modül içinde boyut üstten gelsin (ikon yazı tipi hariç) */
+  .modulex-cagri-imza :where(*:not(.material-symbols-outlined)) { font-size: inherit; }
+  /* aynı «*» kuralı font-weight 400 · line-height 1.2 · font-family de basar — modül içinde kalıtım */
+  .modulex-cagri-imza :where(*:not(.material-symbols-outlined)) { font-weight: inherit; line-height: inherit; font-family: inherit; }
+  .modulex-cagri-imza :where(h2, h3, h4, p, ul, ol, li, figure, blockquote, dl, dd) { margin: 0; }
+  .modulex-cagri-imza :where(ul, ol) { padding: 0; list-style: none; }
+  .modulex-cagri-imza img { display: block; max-width: 100%; }
+  /* <img width height> öznitelik yüksekliği CSS aspect-ratio'yu ezer — sıfır özgüllükle auto (modül sınıfının height'ı yine kazanır) */
+  :where(.modulex-cagri-imza) img { height: auto; }
+  .modulex-cagri-imza [hidden] { display: none !important; }
+  .modulex-cagri-imza :where(a, button, summary, [data-cevir]) { cursor: pointer; }
+  .modulex-cagri-imza :where(a, button, summary, [tabindex]):focus-visible { outline: 3px solid --accent--; outline-offset: 3px; }
+  .modulex-cagri-imza-ic { max-width: --max--; margin-inline: auto; }
+  .modulex-cagri-imza-bas { display: grid; gap: 12px; margin-block-end: clamp(32px, 4vw, 52px); }
+  .modulex-cagri-imza--bassiz .modulex-cagri-imza-bas { display: none; }
+  .modulex-cagri-imza-ust { color: --accentInk--; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+  .modulex-cagri-imza-baslik { font-family: var(--mx-font-heading, inherit); font-size: clamp(1.8rem, 3.4vw, 2.8rem); font-weight: 750; letter-spacing: -0.025em; line-height: 1.1; }
+  .modulex-cagri-imza-metin { color: --muted--; font-size: 1.05rem; line-height: 1.7; }
+  .modulex-cagri-imza-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-block-start: 8px; }
+  .modulex-cagri-imza-dugme { display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 12px 22px; border: 2px solid --accent--; border-radius: 999px; background: --accent--; color: --accentText--; font-weight: 700; text-decoration: none; transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease; }
+  .modulex-cagri-imza-dugme:hover { transform: translateY(-2px); }
+  .modulex-cagri-imza-dugme--ikincil { background: transparent; color: --yaziRenk--; border-color: --cizgi--; }
+  .modulex-cagri-imza-dugme--ikincil:hover { border-color: --accent--; }
+  .modulex-cagri-imza-dugme .material-symbols-outlined { font-size: 20px; }
+
+  .modulex-cagri-imza-duzen { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: clamp(32px, 6vw, 80px); align-items: center; }
+  .modulex-cagri-imza-duzen--tek { grid-template-columns: minmax(0, 1fr); max-width: 760px; }
+  .modulex-cagri-imza-yazi { display: grid; gap: 14px; justify-items: start; }
+  .modulex-cagri-imza-kartvizit { perspective: 1200px; }
+  .modulex-cagri-imza-on { position: relative; display: grid; gap: 14px; overflow: hidden; padding: clamp(22px, 4vw, 40px); padding-inline-end: clamp(30px, 5vw, 52px); border: 1px solid --cizgi--; border-radius: 14px; background: --kartBg--; box-shadow: 0 2px 0 --cizgi--, 0 40px 60px -40px color-mix(in srgb, --yaziRenk-- 65%, transparent); transform: rotateX(8deg) rotateZ(-2deg); transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1); }
+  .modulex-cagri-imza-on:hover { transform: none; }
+  .modulex-cagri-imza-on::before { content: ""; position: absolute; inset-block: 0; inset-inline-end: 0; width: 10px; background: linear-gradient(180deg, --accent--, color-mix(in srgb, --accent-- 40%, --kartBg--)); }
+  .modulex-cagri-imza-imzasvg { display: block; width: 100%; height: auto; overflow: visible; color: --accentInk--; }
+  .modulex-cagri-imza-imzayazi { fill: currentColor; stroke: currentColor; stroke-width: 1.2; stroke-dasharray: 1400; stroke-dashoffset: 0; font-family: "Segoe Script", "Brush Script MT", "Snell Roundhand", "Apple Chancery", cursive; font-size: 92px; font-style: italic; }
+  .modulex-cagri-imza-kalem { fill: none; stroke: --accent--; stroke-width: 3; stroke-linecap: round; stroke-dasharray: 100; stroke-dashoffset: 0; }
+  .modulex-cagri-imza--hazir:not(.modulex-cagri-imza--gor) .modulex-cagri-imza-imzayazi { fill: transparent; stroke-dashoffset: 1400; }
+  .modulex-cagri-imza--hazir:not(.modulex-cagri-imza--gor) .modulex-cagri-imza-kalem { stroke-dashoffset: 100; }
+  .modulex-cagri-imza--gor .modulex-cagri-imza-imzayazi { animation: modulex-cagri-imza-ciz 2.8s ease both; }
+  .modulex-cagri-imza--gor .modulex-cagri-imza-kalem { animation: modulex-cagri-imza-kalem 0.9s ease 2.2s both; }
+  .modulex-cagri-imza-unvan { padding-block-start: 10px; border-block-start: 1px solid --cizgi--; color: --muted--; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+  .modulex-cagri-imza-kanallar { display: grid; gap: 8px; }
+  .modulex-cagri-imza-kanallar li { display: flex; align-items: center; gap: 10px; min-width: 0; }
+  .modulex-cagri-imza-kikon { color: --accentInk--; font-size: 20px; }
+  .modulex-cagri-imza-ktel, .modulex-cagri-imza-kmail, .modulex-cagri-imza-kwa { color: --yaziRenk--; font-weight: 650; text-decoration: none; overflow-wrap: anywhere; transition: color 0.2s ease; }
+  .modulex-cagri-imza-kwa { display: inline-flex; align-items: center; gap: 10px; }
+  .modulex-cagri-imza-ktel:hover, .modulex-cagri-imza-kmail:hover, .modulex-cagri-imza-kwa:hover { color: --accentInk--; }
+  @keyframes modulex-cagri-imza-ciz { 0% { stroke-dashoffset: 1400; fill: transparent; } 70% { stroke-dashoffset: 0; fill: transparent; } 100% { stroke-dashoffset: 0; fill: currentColor; } }
+  @keyframes modulex-cagri-imza-kalem { from { stroke-dashoffset: 100; } to { stroke-dashoffset: 0; } }
+  @media (max-width: 768px) {
+    .modulex-cagri-imza-duzen { grid-template-columns: minmax(0, 1fr); }
+    .modulex-cagri-imza-on { transform: rotateZ(-1deg); }
+  }
+  .modulex-cagri-imza-wasvg { width: 1.25em; height: 1.25em; flex: none; }
+  .modulex-cagri-imza-maddeler { display: grid; gap: 12px; }
+  .modulex-cagri-imza-madde { display: flex; align-items: flex-start; gap: 12px; }
+  .modulex-cagri-imza-mikon { flex: none; color: --accentInk--; font-size: 24px; }
+  .modulex-cagri-imza-myazi { display: grid; gap: 2px; }
+  .modulex-cagri-imza-myazi strong { font-weight: 700; }
+  .modulex-cagri-imza-myazi small { color: --muted--; font-size: 0.92rem; }
+  .modulex-cagri-imza-not { color: --muted--; font-size: 0.9rem; }
+  .modulex-cagri-imza-saat { display: flex; align-items: center; gap: 8px; color: --muted--; font-size: 0.95rem; }
+  .modulex-cagri-imza-saat .material-symbols-outlined { font-size: 20px; color: --accentInk--; }
+  .modulex-cagri-imza-metin { max-width: 62ch; }
+
+  :is([lang="ar"], [lang="fa"], [lang="he"], [lang="ur"]) .modulex-cagri-imza :is(.modulex-cagri-imza-baslik, .modulex-cagri-imza-ust, h3, h4, strong) { letter-spacing: 0; }
+  :is([lang="ar"], [lang="fa"], [lang="he"], [lang="ur"]) .modulex-cagri-imza-baslik { line-height: 1.35; }
+  @media (max-width: 768px) {
+    .modulex-cagri-imza { padding-inline: 16px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .modulex-cagri-imza *, .modulex-cagri-imza *::before, .modulex-cagri-imza *::after { animation: none !important; transition: none !important; }
+  }
+</style>
+<script>
+  (() => {
+    const P = "modulex-cagri-imza";
+    const az = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+    const gozlem = (s, P, az) => {
+        const gor = () => s.classList.add(P + "--gor");
+        s.classList.add(P + "--hazir");
+        if (az || !("IntersectionObserver" in window)) { gor(); return; }
+        const io = new IntersectionObserver((gs) => {
+          gs.forEach((g) => { if (g.isIntersecting) { gor(); io.disconnect(); } });
+        }, { threshold: 0.15 });
+        io.observe(s);
+      };
+    document.querySelectorAll("." + P).forEach((s) => {
+      if (s.dataset.fbHazir) return;
+      s.dataset.fbHazir = "1";
+      gozlem(s, P, az);
+    });
+  })();
+</script>

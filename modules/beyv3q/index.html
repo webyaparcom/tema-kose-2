@@ -1,0 +1,124 @@
+<section class="modulex-kose-yazisi-arsiv{{fbsinif}}" {{fbetiket}}>
+  <div class="modulex-kose-yazisi-arsiv-ic">
+    {{fbbas}}
+    {{fbgovde}}
+  </div>
+</section>
+
+<style>
+  /* kose-yazisi-arsiv — tanitim-imza'nın tek mektup bloğundan ve tanitim-gazete'nin çok sütunlu metninden farkı: tarih eksenli arşiv iskeleti (ay grupları, kenarda dev gün rakamı, okuma süresi çubuğu) + yapışkan yazar kartı ve etiket süzgeci; module ailesinde tarihli yazı listesi yok. */
+  .modulex-kose-yazisi-arsiv { box-sizing: border-box; width: 100%; padding: --bosluk-- 20px; background: --bg--; color: --text--; font-size: 1rem; line-height: 1.6; font-family: var(--mx-font-sans, inherit); overflow-wrap: break-word; }
+  .modulex-kose-yazisi-arsiv *, .modulex-kose-yazisi-arsiv *::before, .modulex-kose-yazisi-arsiv *::after { box-sizing: border-box; }
+  /* ham/css.css «* { font-size: 14px }» kalıtımı keser — modül içinde boyut üstten gelsin (ikon yazı tipi hariç) */
+  .modulex-kose-yazisi-arsiv :where(*:not(.material-symbols-outlined)) { font-size: inherit; }
+  /* aynı «*» kuralı font-weight 400 · line-height 1.2 · font-family de basar — modül içinde kalıtım */
+  .modulex-kose-yazisi-arsiv :where(*:not(.material-symbols-outlined)) { font-weight: inherit; line-height: inherit; font-family: inherit; }
+  .modulex-kose-yazisi-arsiv :where(h2, h3, h4, p, ul, ol, li, figure, blockquote, dl, dd) { margin: 0; }
+  .modulex-kose-yazisi-arsiv :where(ul, ol) { padding: 0; list-style: none; }
+  .modulex-kose-yazisi-arsiv img { display: block; max-width: 100%; }
+  /* <img width height> öznitelik yüksekliği CSS aspect-ratio'yu ezer — sıfır özgüllükle auto (modül sınıfının height'ı yine kazanır) */
+  :where(.modulex-kose-yazisi-arsiv) img { height: auto; }
+  .modulex-kose-yazisi-arsiv [hidden] { display: none !important; }
+  .modulex-kose-yazisi-arsiv :where(a, button, summary, [data-cevir]) { cursor: pointer; }
+  .modulex-kose-yazisi-arsiv :where(a, button, summary, [tabindex]):focus-visible { outline: 3px solid --accent--; outline-offset: 3px; }
+  .modulex-kose-yazisi-arsiv-ic { max-width: --max--; margin-inline: auto; }
+  .modulex-kose-yazisi-arsiv-bas { display: grid; gap: 12px; margin-block-end: clamp(32px, 4vw, 52px); }
+  .modulex-kose-yazisi-arsiv--bassiz .modulex-kose-yazisi-arsiv-bas { display: none; }
+  .modulex-kose-yazisi-arsiv-ust { color: --accentInk--; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+  .modulex-kose-yazisi-arsiv-baslik { font-family: var(--mx-font-heading, inherit); font-size: clamp(1.8rem, 3.4vw, 2.8rem); font-weight: 750; letter-spacing: -0.025em; line-height: 1.1; }
+  .modulex-kose-yazisi-arsiv-metin { color: --muted--; font-size: 1.05rem; line-height: 1.7; }
+  .modulex-kose-yazisi-arsiv-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-block-start: 8px; }
+  .modulex-kose-yazisi-arsiv-dugme { display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 12px 22px; border: 2px solid --accent--; border-radius: 999px; background: --accent--; color: --accentText--; font-weight: 700; text-decoration: none; transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease; }
+  .modulex-kose-yazisi-arsiv-dugme:hover { transform: translateY(-2px); }
+  .modulex-kose-yazisi-arsiv-dugme--ikincil { background: transparent; color: --text--; border-color: --cizgi--; }
+  .modulex-kose-yazisi-arsiv-dugme--ikincil:hover { border-color: --accent--; }
+  .modulex-kose-yazisi-arsiv-dugme .material-symbols-outlined { font-size: 20px; }
+
+  .modulex-kose-yazisi-arsiv-duzen { display: grid; grid-template-columns: minmax(240px, 0.75fr) minmax(0, 1.6fr); gap: clamp(28px, 5vw, 80px); align-items: start; }
+  .modulex-kose-yazisi-arsiv-yazar { position: sticky; inset-block-start: 96px; display: grid; gap: 10px; }
+  .modulex-kose-yazisi-arsiv-portre { width: 112px; height: 112px; border-radius: 50%; object-fit: cover; box-shadow: 0 0 0 4px --bg--, 0 0 0 6px --accent--; transition: transform 0.4s ease; }
+  .modulex-kose-yazisi-arsiv-portre:hover { transform: rotate(-4deg) scale(1.03); }
+  .modulex-kose-yazisi-arsiv-yad { margin-block-start: 6px; font-family: var(--mx-font-heading, inherit); font-size: 1.25rem; font-weight: 800; }
+  .modulex-kose-yazisi-arsiv-yunvan { color: --muted--; font-size: 0.86rem; font-weight: 650; }
+  .modulex-kose-yazisi-arsiv-giris { display: grid; gap: 12px; margin-block: 14px 6px; padding-block-start: 16px; border-block-start: 1px solid --cizgi--; }
+  .modulex-kose-yazisi-arsiv-giris .modulex-kose-yazisi-arsiv-baslik { font-size: clamp(1.5rem, 2.6vw, 2.1rem); }
+  .modulex-kose-yazisi-arsiv-giris .modulex-kose-yazisi-arsiv-metin { font-size: 0.98rem; }
+  .modulex-kose-yazisi-arsiv-suz { display: flex; flex-wrap: wrap; gap: 6px; }
+  .modulex-kose-yazisi-arsiv-fcip { min-height: 38px; padding: 6px 14px; border: 1.5px solid --cizgi--; border-radius: 6px; background: transparent; color: --text--; font: inherit; font-size: 0.84rem; font-weight: 750; transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease; }
+  .modulex-kose-yazisi-arsiv-fcip:hover { border-color: --accent--; }
+  .modulex-kose-yazisi-arsiv-fcip[aria-pressed="true"] { border-color: --accent--; background-color: --accent--; color: --accentText--; }
+  .modulex-kose-yazisi-arsiv-arsiv { display: grid; gap: clamp(28px, 4vw, 44px); min-width: 0; }
+  .modulex-kose-yazisi-arsiv-ayg { display: grid; }
+  .modulex-kose-yazisi-arsiv-aybas { padding-block-end: 10px; border-block-end: 3px solid --text--; font-size: 0.82rem; font-weight: 850; letter-spacing: 0.14em; text-transform: uppercase; }
+  .modulex-kose-yazisi-arsiv-yazi { display: grid; grid-template-columns: 84px minmax(0, 1fr); gap: 20px; padding-block: 22px; border-block-end: 1px solid --cizgi--; animation: modulex-kose-yazisi-arsiv-yazi 0.4s ease both; }
+  .modulex-kose-yazisi-arsiv-gun { display: grid; align-content: start; justify-items: center; }
+  .modulex-kose-yazisi-arsiv-gno { color: --accentInk--; font-family: var(--mx-font-heading, inherit); font-size: clamp(2.4rem, 4vw, 3.3rem); font-weight: 850; line-height: 1; font-variant-numeric: tabular-nums; }
+  .modulex-kose-yazisi-arsiv-gad { color: --muted--; font-size: 0.74rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; }
+  .modulex-kose-yazisi-arsiv-ygov { display: grid; justify-items: start; gap: 8px; min-width: 0; }
+  .modulex-kose-yazisi-arsiv-yet { padding: 2px 10px; border-inline-start: 3px solid --accent--; background: --kartBg--; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+  .modulex-kose-yazisi-arsiv-ybas { font-family: var(--mx-font-heading, inherit); font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 800; line-height: 1.25; }
+  .modulex-kose-yazisi-arsiv-spot { color: --muted--; }
+  .modulex-kose-yazisi-arsiv--js .modulex-kose-yazisi-arsiv-spot { display: -webkit-box; overflow: hidden; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
+  .modulex-kose-yazisi-arsiv--js .modulex-kose-yazisi-arsiv-yazi.modulex-kose-yazisi-arsiv--acik .modulex-kose-yazisi-arsiv-spot { display: block; overflow: visible; }
+  .modulex-kose-yazisi-arsiv-devam { display: inline-flex; align-items: center; gap: 4px; padding: 0; border: 0; background: none; color: --accentInk--; font: inherit; font-size: 0.88rem; font-weight: 750; }
+  .modulex-kose-yazisi-arsiv-devam .material-symbols-outlined { transition: transform 0.3s ease; }
+  .modulex-kose-yazisi-arsiv-devam[aria-expanded="true"] .material-symbols-outlined { transform: rotate(180deg); }
+  .modulex-kose-yazisi-arsiv-sure { display: inline-flex; align-items: center; gap: 8px; color: --muted--; font-size: 0.8rem; font-weight: 650; }
+  .modulex-kose-yazisi-arsiv-sbar { position: relative; display: inline-block; width: 60px; height: 4px; overflow: hidden; border-radius: 4px; background: --cizgi--; }
+  .modulex-kose-yazisi-arsiv-sbar::after { content: ""; position: absolute; inset-block: 0; inset-inline-start: 0; width: var(--fb-s); background: --accent--; }
+  @keyframes modulex-kose-yazisi-arsiv-yazi { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+  @media (max-width: 1024px) {
+    .modulex-kose-yazisi-arsiv-duzen { grid-template-columns: minmax(0, 1fr); }
+    .modulex-kose-yazisi-arsiv-yazar { position: static; }
+  }
+  @media (max-width: 768px) {
+    .modulex-kose-yazisi-arsiv-yazi { grid-template-columns: 56px minmax(0, 1fr); gap: 14px; }
+    .modulex-kose-yazisi-arsiv-portre { width: 88px; height: 88px; }
+  }
+  .modulex-kose-yazisi-arsiv-bag { color: inherit; text-decoration: none; }
+  .modulex-kose-yazisi-arsiv-bag:hover { text-decoration: underline; text-underline-offset: 4px; }
+  .modulex-kose-yazisi-arsiv-mbaslik { font-size: 1.05rem; font-weight: 700; }
+  .modulex-kose-yazisi-arsiv-mmetin { color: --muted--; font-size: 0.95rem; }
+
+  :is([lang="ar"], [lang="fa"], [lang="he"], [lang="ur"]) .modulex-kose-yazisi-arsiv :is(.modulex-kose-yazisi-arsiv-baslik, .modulex-kose-yazisi-arsiv-ust, h3, h4, strong) { letter-spacing: 0; }
+  :is([lang="ar"], [lang="fa"], [lang="he"], [lang="ur"]) .modulex-kose-yazisi-arsiv-baslik { line-height: 1.35; }
+  @media (max-width: 768px) {
+    .modulex-kose-yazisi-arsiv { padding-inline: 16px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .modulex-kose-yazisi-arsiv *, .modulex-kose-yazisi-arsiv *::before, .modulex-kose-yazisi-arsiv *::after { animation: none !important; transition: none !important; }
+  }
+</style>
+<script>
+  (() => {
+    const P = "modulex-kose-yazisi-arsiv";
+    const az = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+    const yaziArsiv = (s, P) => {
+        const y = [...s.querySelectorAll("[data-yazi]")];
+        if (!y.length) return;
+        s.classList.add(P + "--js");
+        y.forEach((a) => {
+          const b = a.querySelector("[data-ac]");
+          const m = a.querySelector("[data-spot]");
+          if (!b || !m || m.scrollHeight <= m.clientHeight + 2) return;
+          b.hidden = false;
+          b.addEventListener("click", () => { const ac = a.classList.toggle(P + "--acik"); b.setAttribute("aria-expanded", String(ac)); });
+        });
+        const fk = [...s.querySelectorAll("[data-fet]")];
+        const gr = [...s.querySelectorAll("[data-ayg]")];
+        const fg = s.querySelector("[data-fgrup]");
+        if (fg && fk.length > 1) fg.hidden = false;
+        fk.forEach((b) => b.addEventListener("click", () => {
+          const v = b.dataset.fet;
+          fk.forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
+          y.forEach((a) => { a.hidden = v !== "" && a.dataset.et !== v; });
+          gr.forEach((g) => { g.hidden = ![...g.querySelectorAll("[data-yazi]")].some((a) => !a.hidden); });
+        }));
+      };
+    document.querySelectorAll("." + P).forEach((s) => {
+      if (s.dataset.fbHazir) return;
+      s.dataset.fbHazir = "1";
+      yaziArsiv(s, P, az);
+    });
+  })();
+</script>
