@@ -2,7 +2,9 @@
   "name": {
     "tr": "Yazar",
     "en": "Writer",
-    "ar": "الكاتب"
+    "ar": "الكاتب",
+    "de": "Autor",
+    "ru": "Автор"
   },
   "status": "play",
   "category": "",
@@ -23,7 +25,9 @@
   "description": {
     "tr": "Köşe, kitaplar ve söyleşiler (kurgusal).",
     "en": "Column, books and talks (fictional).",
-    "ar": "العمود والكتب والحوارات (افتراضي)."
+    "ar": "العمود والكتب والحوارات (افتراضي).",
+    "de": "Kolumne, Bücher und Gespräche (fiktiv).",
+    "ru": "Колонка, книги и беседы (вымышленно)."
   },
   "spot": {
     "tr": "",
@@ -34,12 +38,16 @@
   "title": {
     "tr": "Yazar",
     "en": "Writer",
-    "ar": "الكاتب"
+    "ar": "الكاتب",
+    "de": "Autor",
+    "ru": "Автор"
   },
   "keyword": {
     "tr": "yazar, kitap",
     "en": "writer, books",
-    "ar": "كاتب، كتب"
+    "ar": "كاتب، كتب",
+    "de": "Autor, Buch",
+    "ru": "автор, книга"
   },
   "text": {},
   "update": "2026-11-16T22:49:41.746Z",

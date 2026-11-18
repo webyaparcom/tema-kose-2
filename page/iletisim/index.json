@@ -2,7 +2,9 @@
   "name": {
     "tr": "Yazışma",
     "en": "Write",
-    "ar": "المراسلة"
+    "ar": "المراسلة",
+    "de": "Schreiben",
+    "ru": "Написать"
   },
   "status": "play",
   "category": "",
@@ -22,7 +24,9 @@
   "description": {
     "tr": "Yazara not ve söyleşi daveti (demo).",
     "en": "A note to the writer and talk invitations (demo).",
-    "ar": "ملاحظة للكاتب ودعوات الحوار (تجريبي)."
+    "ar": "ملاحظة للكاتب ودعوات الحوار (تجريبي).",
+    "de": "Nachricht an den Autor und Einladung zum Gespräch (Demo).",
+    "ru": "Сообщение автору и приглашение на беседу (демо)."
   },
   "spot": {
     "tr": "",
@@ -33,12 +37,16 @@
   "title": {
     "tr": "Yazışma",
     "en": "Write",
-    "ar": "المراسلة"
+    "ar": "المراسلة",
+    "de": "Schreiben",
+    "ru": "Написать"
   },
   "keyword": {
     "tr": "iletişim, not",
     "en": "contact, note",
-    "ar": "اتصال، ملاحظة"
+    "ar": "اتصال، ملاحظة",
+    "de": "Kontakt, Hinweis",
+    "ru": "контакт, примечание"
   },
   "text": {},
   "update": "2026-11-16T22:49:41.769Z",

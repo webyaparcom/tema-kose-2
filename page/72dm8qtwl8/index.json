@@ -3,17 +3,23 @@
   "name": {
     "tr": "Arşiv",
     "en": "Archive",
-    "ar": "الأرشيف"
+    "ar": "الأرشيف",
+    "de": "Archiv",
+    "ru": "Архив"
   },
   "description": {
     "tr": "Ay ay köşe yazıları arşivi (kurgusal).",
     "en": "Month-by-month column archive (fictional).",
-    "ar": "أرشيف المقالات شهرًا بشهر (افتراضي)."
+    "ar": "أرشيف المقالات شهرًا بشهر (افتراضي).",
+    "de": "Monatlicher Archiv der Kolumnen (fiktiv).",
+    "ru": "Архив колонок по месяцам (вымышленный)."
   },
   "keyword": {
     "tr": "arşiv, köşe yazısı",
     "en": "archive, column",
-    "ar": "أرشيف، مقال"
+    "ar": "أرشيف، مقال",
+    "de": "Archiv, Kolumne",
+    "ru": "архив, колонка"
   },
   "path": "referanslar",
   "icon": "inventory_2",
@@ -32,7 +38,9 @@
   "title": {
     "tr": "Arşiv",
     "en": "Archive",
-    "ar": "الأرشيف"
+    "ar": "الأرشيف",
+    "de": "Archiv",
+    "ru": "Архив"
   },
   "date": "2026-11-16T22:41:56.557Z",
   "update": "2026-11-16T22:49:41.758Z"

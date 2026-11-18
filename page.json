@@ -4,7 +4,9 @@
       "name": {
         "tr": "Yazar",
         "en": "Writer",
-        "ar": "الكاتب"
+        "ar": "الكاتب",
+        "de": "Autor",
+        "ru": "Автор"
       },
       "status": "play",
       "id": "hakkimizda",
@@ -25,7 +27,9 @@
       "description": {
         "tr": "Köşe, kitaplar ve söyleşiler (kurgusal).",
         "en": "Column, books and talks (fictional).",
-        "ar": "العمود والكتب والحوارات (افتراضي)."
+        "ar": "العمود والكتب والحوارات (افتراضي).",
+        "de": "Kolumne, Bücher und Gespräche (fiktiv).",
+        "ru": "Колонка, книги и беседы (вымышленно)."
       }
     },
     {
@@ -33,12 +37,16 @@
       "name": {
         "tr": "Arşiv",
         "en": "Archive",
-        "ar": "الأرشيف"
+        "ar": "الأرشيف",
+        "de": "Archiv",
+        "ru": "Архив"
       },
       "description": {
         "tr": "Ay ay köşe yazıları arşivi (kurgusal).",
         "en": "Month-by-month column archive (fictional).",
-        "ar": "أرشيف المقالات شهرًا بشهر (افتراضي)."
+        "ar": "أرشيف المقالات شهرًا بشهر (افتراضي).",
+        "de": "Monatlicher Archiv der Kolumnen (fiktiv).",
+        "ru": "Архив колонок по месяцам (вымышленный)."
       },
       "path": "referanslar",
       "icon": "inventory_2",
@@ -57,7 +65,9 @@
       "name": {
         "tr": "Yazışma",
         "en": "Write",
-        "ar": "المراسلة"
+        "ar": "المراسلة",
+        "de": "Schreiben",
+        "ru": "Написать"
       },
       "status": "play",
       "id": "iletisim",
@@ -77,7 +87,9 @@
       "description": {
         "tr": "Yazara not ve söyleşi daveti (demo).",
         "en": "A note to the writer and talk invitations (demo).",
-        "ar": "ملاحظة للكاتب ودعوات الحوار (تجريبي)."
+        "ar": "ملاحظة للكاتب ودعوات الحوار (تجريبي).",
+        "de": "Nachricht an den Autor und Einladung zum Gespräch (Demo).",
+        "ru": "Сообщение автору и приглашение на беседу (демо)."
       }
     }
   ],

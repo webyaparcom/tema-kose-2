@@ -3,17 +3,23 @@
   "name": {
     "tr": "Misyon",
     "en": "Mission",
-    "ar": "المهمة"
+    "ar": "المهمة",
+    "de": "Mission",
+    "ru": "Миссия"
   },
   "description": {
     "tr": "Misyonumuz",
     "en": "Our mission",
-    "ar": "مهمتنا"
+    "ar": "مهمتنا",
+    "de": "Unsere Mission",
+    "ru": "Наша миссия"
   },
   "keyword": {
     "tr": "Misyon",
     "en": "mission, our mission, corporate responsibility",
-    "ar": "الرسالة, رسالتنا, المسؤولية المؤسسية"
+    "ar": "الرسالة, رسالتنا, المسؤولية المؤسسية",
+    "de": "Mission",
+    "ru": "Миссия"
   },
   "path": "misyon",
   "icon": "flag",
@@ -29,12 +35,16 @@
   "text": {
     "tr": "<h2>Misyonumuz</h2>\n<p>Kentin küçük ayrıntılarını haftada bir yazıyla kayda geçirmek.</p>",
     "en": "<h2>Our mission</h2>\n<p>To record the small details of the city in one column a week.</p>",
-    "ar": "<h2>مهمتنا</h2>\n<p>تدوين التفاصيل الصغيرة للمدينة بمقال واحد كل أسبوع.</p>"
+    "ar": "<h2>مهمتنا</h2>\n<p>تدوين التفاصيل الصغيرة للمدينة بمقال واحد كل أسبوع.</p>",
+    "de": "<h2>Unsere Mission</h2>\n<p>Die kleinen Details der Stadt einmal pro Woche in einem Text festzuhalten.</p>",
+    "ru": "<h2>Наша миссия</h2>\n<p>Раз в неделю запечатлевать в тексте мелкие подробности города.</p>"
   },
   "title": {
     "tr": "Misyon",
     "en": "Mission",
-    "ar": "المهمة"
+    "ar": "المهمة",
+    "de": "Mission",
+    "ru": "Миссия"
   },
   "date": "2026-11-16T22:41:56.161Z",
   "update": "2026-11-16T22:49:41.792Z",
