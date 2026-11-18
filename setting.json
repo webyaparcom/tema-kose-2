@@ -4,12 +4,16 @@
   "description": {
     "tr": "Deniz Yalçıner (kurgusal): kent, dil ve gündelik hayat üzerine haftalık köşe yazıları; ay ay arşiv, kitaplar ve söyleşi daveti. Demo site; içerik kurgusaldır.",
     "en": "Deniz Yalciner (fictional): weekly columns on the city, language and everyday life; a month-by-month archive, books and talk invitations. Demo site; content is fictional.",
-    "ar": "دنيز يالتشينر (افتراضي): مقالات أسبوعية عن المدينة واللغة والحياة اليومية؛ أرشيف شهري وكتب ودعوات للحوار. موقع تجريبي؛ المحتوى افتراضي."
+    "ar": "دنيز يالتشينر (افتراضي): مقالات أسبوعية عن المدينة واللغة والحياة اليومية؛ أرشيف شهري وكتب ودعوات للحوار. موقع تجريبي؛ المحتوى افتراضي.",
+    "de": "Deniz Yalçıner (fiktiv): wöchentliche Kolumnen über Stadt, Sprache und Alltag; Archiv nach Monaten, Bücher und Einladungen zu Gesprächen. Demo-Seite; Inhalt ist fiktiv.",
+    "ru": "Deniz Yalçıner (вымышленный): еженедельные колонки о городе, языке и повседневной жизни; архив по месяцам, книги и приглашения на беседы. Демо-сайт; контент вымышленный."
   },
   "keyword": {
     "tr": "köşe yazısı, deneme, yazar, arşiv, kent yazıları",
     "en": "column, essay, writer, archive, city writing",
-    "ar": "مقال رأي، مقالة، كاتب، أرشيف، كتابات عن المدينة"
+    "ar": "مقال رأي، مقالة، كاتب، أرشيف، كتابات عن المدينة",
+    "de": "Kolumne, Essay, Autor, Archiv, Stadttexte",
+    "ru": "колонка, эссе, автор, архив, городские тексты"
   },
   "category": "Kurumsal",
   "name": "Deniz Yalçıner",
@@ -18,15 +22,27 @@
     "tr": true,
     "en": true,
     "ar": true,
-    "de": false,
-    "ru": false,
+    "de": true,
+    "ru": true,
     "es": false,
     "fr": false,
     "it": false,
     "ja": false,
     "zh": false,
     "ko": false,
-    "pt": false
+    "pt": false,
+    "fa": false,
+    "he": false,
+    "ur": false,
+    "nl": false,
+    "pl": false,
+    "uk": false,
+    "az": false,
+    "ka": false,
+    "el": false,
+    "bg": false,
+    "ro": false,
+    "hi": false
   },
   "logo": "logo.png",
   "multi": false,
